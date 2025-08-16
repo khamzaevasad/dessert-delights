@@ -1,0 +1,48 @@
+:root {
+  /* Colors */
+  --red: #c73b0f;
+
+  --rose-900: #270707;
+  --rose-500: #875c4a;
+  --rose-400: #ad8a85;
+  --rose-300: #caafa7;
+  --rose-100: #f2dfce;
+  --rose-50: #fcf6f0;
+
+  --green: #3d8168;
+
+  --black: #000000;
+  --white: #ffffff;
+
+  /* Typography */
+  --font-primary: "Red Hat Text", sans-serif;
+
+  --font-size-xl: 2rem; /* 32px */
+  --font-size-lg: 1.5rem; /* 24px */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-xs: 0.75rem; /* 12px */
+
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+
+  --line-height-tight: 1.2;
+  --line-height-base: 1.5;
+  --line-height-loose: 1.75;
+
+  /* Spacing Scale */
+  --space-1000: 80px;
+  --space-900: 64px;
+  --space-800: 48px;
+  --space-700: 40px;
+  --space-600: 32px;
+  --space-500: 24px;
+  --space-400: 20px;
+  --space-300: 16px;
+  --space-200: 12px;
+  --space-100: 8px;
+  --space-90: 6px;
+  --space-60: 4px;
+}
