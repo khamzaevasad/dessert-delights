@@ -38,6 +38,7 @@ body {
   flex-direction: column;
   height: 100%;
   font-family: var(--font-primary);
+  background-color: var(--rose-50);
 }
 
 main {

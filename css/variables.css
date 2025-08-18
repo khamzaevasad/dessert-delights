@@ -2,7 +2,7 @@
   /* Colors */
   --red: #c73b0f;
 
-  --rose-900: #270707;
+  --rose-900: #260f08;
   --rose-500: #875c4a;
   --rose-400: #ad8a85;
   --rose-300: #caafa7;
@@ -32,17 +32,14 @@
   --line-height-base: 1.5;
   --line-height-loose: 1.75;
 
-  /* Spacing Scale */
-  --space-1000: 80px;
-  --space-900: 64px;
-  --space-800: 48px;
-  --space-700: 40px;
-  --space-600: 32px;
-  --space-500: 24px;
-  --space-400: 20px;
-  --space-300: 16px;
-  --space-200: 12px;
-  --space-100: 8px;
-  --space-90: 6px;
-  --space-60: 4px;
+  /* Spacing Scale (1rem = 10px) */
+
+  --space-1000: 8.8rem; /* 88px */
+  --space-500: 4rem; /* 40px */
+  --space-400: 3.2rem; /* 32px */
+  --space-300: 2.4rem; /* 24px */
+  --space-200: 1.6rem; /* 16px */
+  --space-150: 1.2rem; /* 12px */
+  --space-100: 0.8rem; /* 8px */
+  --space-50: 0.4rem; /* 4px */
 }
