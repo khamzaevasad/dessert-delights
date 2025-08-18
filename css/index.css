@@ -1,28 +1,32 @@
 @import "./main.css";
 
+/* items-left */
 .items-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
 }
 
-/* .items-left {
-  flex: 2;
+.header-title {
+  font-weight: var(--font-weight-bold);
+  color: var(--black);
+  font-size: 48px;
+  margin-bottom: 3.2rem;
+  margin-top: 3.2rem;
 }
-.items-right {
-  flex: 1;
-} */
 
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 2.4rem;
 }
+
 .card {
   display: flex;
+  justify-content: center;
+}
+
+.card-body {
   position: relative;
-  flex-direction: column;
-  align-items: center;
 }
 
 .card-img {
@@ -31,12 +35,14 @@
   height: 240px;
   object-fit: cover;
 }
+
 .card-btn {
+  width: 200px;
   position: absolute;
-  bottom: 8rem;
+  top: 240px;
   left: 50%;
-  transform: translateX(-50%);
-  font-weight: 600;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
   border-radius: 50px;
   font-size: var(--space-200);
   color: var(--rose-900);
@@ -51,12 +57,13 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
+
 .card-info {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   justify-content: start;
-  margin-top: 2.5rem;
+  margin-top: 3.8rem;
 }
 
 .dessert-title {
@@ -73,25 +80,133 @@
   color: var(--rose-900);
   margin-bottom: 0.4rem;
 }
+
 .desser-price {
   color: var(--red);
   font-size: var(--space-200);
 }
 
+/* items-right */
+
 .price-container {
-  width: 400px;
-  height: 400px;
+  padding: 2.4rem;
+  border-radius: 10px;
   background-color: #fff;
+  margin-left: 3.2rem;
+  margin-top: 3.2rem;
+  margin-bottom: 3.2rem;
+}
+
+.epmty-cart {
+}
+.price-card-title {
+  color: var(--red);
+  font-size: var(--space-300);
+  font-weight: 600;
+  padding: 2.4rem;
+}
+.card-description-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 1.6rem;
+  padding-top: 1.6rem;
+}
+.empty-img {
+  margin-left: 14rem;
+  margin-right: 14rem;
+}
+.subtitle {
+  color: var(--rose-500);
+  font-size: var(--space-200);
+  margin-top: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.price-line {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.price-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 2.4rem;
+  margin-right: 2.4rem;
+}
+.dessert-name {
+  font-weight: 600;
+  color: var(--black);
+  font-size: var(--space-200);
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.dessert-subtitle {
+  display: flex;
+  gap: 0.8rem;
+}
+.dessert-amount {
+  color: var(--red);
+  font-weight: 600;
+  font-size: var(--space-200);
+}
+.dessert-price,
+.dessert-total-price {
+  color: var(--rose-500);
+  font-size: var(--space-200);
+}
+.desser-price {
+  font-weight: 400;
+}
+.dessert-total-price {
+  font-weight: 500;
+}
+.remove-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: solid 1px var(--rose-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.line {
+  width: 336px;
+  border: solid 1px var(--rose-100);
+  text-align: center;
+  margin: 1.6rem 2.4rem;
+}
+
+.total-price-subtitle {
+  color: var(--rose-500);
+  font-size: var(--space-200);
+  font-weight: 400;
+}
+.total-price {
+  color: var(--black);
+  font-weight: 600;
+  font-size: var(--space-400);
 }
 
 @media (max-width: 1024px) {
   .items-container {
     grid-template-columns: 1fr;
   }
+  .price-container {
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 768px) {
   .cards {
     grid-template-columns: 1fr;
+  }
+  .price-container {
+    margin-left: 0;
   }
 }
