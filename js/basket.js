@@ -32,10 +32,15 @@ export function addToBasket(desserts) {
   localStorage.setItem("basket", JSON.stringify(basketDesserts));
 }
 
+function updateUIAndLocal() {
+  localStorage.setItem("basket", JSON.stringify(basketDesserts));
+  calculateTotal(basketDesserts);
+}
+
 export function increment(id) {
   const item = basketDesserts.find((item) => item.id == id);
   item.amount += 1;
-  console.log(item);
+  updateUIAndLocal();
 }
 
 export function decrement(id) {
@@ -49,7 +54,5 @@ export function decrement(id) {
   } else {
     item.amount -= 1;
   }
-  console.log(item);
-  localStorage.setItem("basket", JSON.stringify(basketDesserts));
-  calculateTotal(basketDesserts);
+  updateUIAndLocal();
 }

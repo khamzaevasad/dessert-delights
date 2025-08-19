@@ -24,16 +24,31 @@ export const updateUI = (desserts, dessertTemplate, containerElements) => {
     addBtn.addEventListener("click", (e) => {
       e.preventDefault();
       addToBasket(dessert);
+
       addBtn.classList.add("hidden");
       join.classList.remove("hidden");
-    });
-
-    decrementBtn.addEventListener("click", () => {
-      decrement(id);
+      counter.textContent = 1;
     });
 
     incrementBtn.addEventListener("click", () => {
       increment(id);
+      const item = basketDesserts.find((el) => el.id === id);
+      counter.textContent = item.amount;
+    });
+
+    decrementBtn.addEventListener("click", () => {
+      const item = basketDesserts.find((el) => el.id === id);
+
+      if (item.amount === 1) {
+        decrement(id);
+
+        addBtn.classList.remove("hidden");
+        join.classList.add("hidden");
+        counter.textContent = 0;
+      } else {
+        decrement(id);
+        counter.textContent = item.amount - 1;
+      }
     });
 
     const item = basketDesserts.find((el) => el.id == id);
