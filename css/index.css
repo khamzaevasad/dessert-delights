@@ -192,6 +192,38 @@
   font-size: var(--space-400);
 }
 
+.delivery-box {
+  border-radius: 10px;
+  background-color: var(--rose-50);
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.delivery-icon {
+  margin-right: 0.8rem;
+}
+.delivery-subtitle {
+  margin: 1.6rem 5.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--rose-900);
+}
+.subtitle-bold {
+  font-weight: 600;
+}
+
+.confirm-btn {
+  padding: 1.6rem 11.3rem;
+  font-size: var(--space-200);
+  color: var(--white);
+  background-color: var(--red);
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+}
+
 @media (max-width: 1024px) {
   .items-container {
     grid-template-columns: 1fr;
@@ -199,6 +231,9 @@
   .price-container {
     width: 100%;
     margin-left: 0;
+  }
+  .line {
+    width: 100%;
   }
 }
 
