@@ -1,9 +1,8 @@
 import { formatNumber } from "./formatNumber.js";
-
+import { addToBasket } from "./basket.js";
 // Update Ui
 export const updateUI = (desserts, dessertTemplate, containerElements) => {
   const fragment = document.createDocumentFragment();
-  console.log(desserts);
 
   containerElements.innerHTML = "";
 
@@ -17,6 +16,15 @@ export const updateUI = (desserts, dessertTemplate, containerElements) => {
     const dessertDescription = clone.querySelector(".dessert-description");
     const desserPrice = clone.querySelector(".desser-price");
     const addBtn = clone.getElementById("add-btn");
+    const join = clone.querySelector(".join");
+    const counter = clone.querySelector(".counter");
+
+    addBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      addToBasket(dessert);
+      // addBtn.classList.add("hidden");
+      // join.classList.remove("hidden");
+    });
 
     cardImg.src = image.desktop;
     dessertTitle.textContent = category;
