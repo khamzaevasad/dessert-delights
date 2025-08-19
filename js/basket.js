@@ -1,4 +1,8 @@
 import { formatNumber } from "./formatNumber.js";
+import { cartUI } from "./updateUI.js";
+
+const cartTemplate = document.getElementById("cart-template");
+const container = document.querySelector(".cart-container");
 
 export let basketDesserts = localStorage.getItem("basket")
   ? JSON.parse(localStorage.getItem("basket"))
@@ -7,6 +11,8 @@ export let basketDesserts = localStorage.getItem("basket")
 if (basketDesserts.length) {
   calculateTotal(basketDesserts);
 }
+
+console.log(basketDesserts);
 
 export function calculateTotal(basketDesserts) {
   let totalPrice = 0;
@@ -56,3 +62,7 @@ export function decrement(id) {
   }
   updateUIAndLocal();
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  cartUI(basketDesserts, cartTemplate, container);
+});

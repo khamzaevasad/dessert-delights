@@ -3,6 +3,7 @@ import { addToBasket, increment, decrement, basketDesserts } from "./basket.js";
 // Update Ui
 export const updateUI = (desserts, dessertTemplate, containerElements) => {
   const fragment = document.createDocumentFragment();
+  console.log(desserts);
 
   containerElements.innerHTML = "";
 
@@ -57,6 +58,32 @@ export const updateUI = (desserts, dessertTemplate, containerElements) => {
     dessertTitle.textContent = category;
     dessertDescription.textContent = name;
     desserPrice.textContent = `${formatNumber(price)}`;
+
+    fragment.appendChild(clone);
+  });
+  containerElements.appendChild(fragment);
+};
+
+export const cartUI = (data, template, containerElements) => {
+  containerElements.innerHTML = "";
+  const fragment = document.createDocumentFragment();
+
+  data.forEach((item) => {
+    const { amount, name, price } = item;
+
+    const clone = template.content.cloneNode(true);
+
+    const _amount = clone.querySelector(".amount");
+    const dessertName = clone.querySelector(".dessert-name");
+    const dessertAmount = clone.querySelector(".dessert-amount");
+    const dessertPrice = clone.querySelector(".dessert-price");
+    const dessertTotalPrice = clone.querySelector(".dessert-total-price");
+    const totalPrice = clone.querySelector(".total-price");
+
+    dessertName.textContent = name;
+    dessertAmount.textContent = amount;
+    dessertPrice.textContent = formatNumber(price);
+    dessertTotalPrice.textContent = `${amount * formatNumber(price)}`;
 
     fragment.appendChild(clone);
   });
