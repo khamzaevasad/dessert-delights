@@ -173,7 +173,15 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: 0.3s;
+  color: var(--rose-400);
 }
+
+.remove-icon:hover {
+  border: solid 1px var(--rose-900);
+  color: var(--rose-900);
+}
+
 .line {
   width: 336px;
   border: solid 1px var(--rose-100);
@@ -222,6 +230,11 @@
   border-radius: 50px;
   border: none;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.confirm-btn:hover {
+  background-color: var(--rose-900);
 }
 
 @media (max-width: 1024px) {
@@ -235,6 +248,12 @@
   .line {
     width: 100%;
   }
+  .delivery-box {
+    width: 100%;
+  }
+  .confirm-btn {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -243,5 +262,11 @@
   }
   .price-container {
     margin-left: 0;
+  }
+  .items-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
