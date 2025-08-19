@@ -1,7 +1,14 @@
 import { formatNumber } from "./formatNumber.js";
-let basketDesserts = [];
 
-function calculateTotal(basketDesserts) {
+export let basketDesserts = localStorage.getItem("basket")
+  ? JSON.parse(localStorage.getItem("basket"))
+  : [];
+
+if (basketDesserts.length) {
+  calculateTotal(basketDesserts);
+}
+
+export function calculateTotal(basketDesserts) {
   let totalPrice = 0;
   let totalAmount = 0;
 
@@ -21,4 +28,28 @@ export function addToBasket(desserts) {
   }
   console.log(calculateTotal(basketDesserts));
   console.log(basketDesserts);
+
+  localStorage.setItem("basket", JSON.stringify(basketDesserts));
+}
+
+export function increment(id) {
+  const item = basketDesserts.find((item) => item.id == id);
+  item.amount += 1;
+  console.log(item);
+}
+
+export function decrement(id) {
+  const item = basketDesserts.find((item) => item.id == id);
+
+  if (item.amount == 1) {
+    const isDeleted = confirm("Are you sure you want to delete this product?");
+    if (isDeleted) {
+      basketDesserts = basketDesserts.filter((el) => el.id !== id);
+    }
+  } else {
+    item.amount -= 1;
+  }
+  console.log(item);
+  localStorage.setItem("basket", JSON.stringify(basketDesserts));
+  calculateTotal(basketDesserts);
 }
