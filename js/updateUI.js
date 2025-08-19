@@ -16,6 +16,7 @@ export const updateUI = (desserts, dessertTemplate, containerElements) => {
     const dessertTitle = clone.querySelector(".dessert-title");
     const dessertDescription = clone.querySelector(".dessert-description");
     const desserPrice = clone.querySelector(".desser-price");
+    const addBtn = clone.getElementById("add-btn");
 
     cardImg.src = image.desktop;
     dessertTitle.textContent = category;

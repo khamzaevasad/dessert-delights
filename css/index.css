@@ -4,6 +4,8 @@
 .items-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-top: 8.8rem;
+  margin-bottom: 8.8rem;
 }
 
 .header-title {
@@ -35,6 +37,9 @@
   height: 240px;
   object-fit: cover;
 }
+.btn {
+  cursor: pointer;
+}
 
 .card-btn {
   width: 200px;
@@ -49,13 +54,36 @@
   background-color: var(--white);
   border: solid 1px var(--rose-400);
   padding: 1.2rem 2.8rem;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 2;
+}
+.add,
+.minus,
+.counter {
+  color: var(--white);
+}
+.join {
+  background-color: var(--red);
+  border: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.decrement-btn,
+.increment-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: solid 1px var(--white);
+  background-color: var(--red);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .card-info {
