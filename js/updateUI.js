@@ -1,9 +1,14 @@
 import { formatNumber } from "./formatNumber.js";
-import { addToBasket, increment, decrement, basketDesserts } from "./basket.js";
+import {
+  addToBasket,
+  increment,
+  decrement,
+  basketDesserts,
+  remove,
+} from "./basket.js";
 // Update Ui
 export const updateUI = (desserts, dessertTemplate, containerElements) => {
   const fragment = document.createDocumentFragment();
-  console.log(desserts);
 
   containerElements.innerHTML = "";
 
@@ -65,27 +70,51 @@ export const updateUI = (desserts, dessertTemplate, containerElements) => {
 };
 
 export const cartUI = (data, template, containerElements) => {
+  const emptyCart = document.querySelector(".epmty-cart");
+  const orderBox = document.querySelector(".order-box");
+
+  if (data.length === 0) {
+    emptyCart.classList.remove("hidden");
+    orderBox.classList.add("hidden");
+  } else {
+    emptyCart.classList.add("hidden");
+    orderBox.classList.remove("hidden");
+  }
+
   containerElements.innerHTML = "";
   const fragment = document.createDocumentFragment();
 
   data.forEach((item) => {
-    const { amount, name, price } = item;
+    const { amount, name, price, id } = item;
 
     const clone = template.content.cloneNode(true);
 
-    const _amount = clone.querySelector(".amount");
     const dessertName = clone.querySelector(".dessert-name");
     const dessertAmount = clone.querySelector(".dessert-amount");
     const dessertPrice = clone.querySelector(".dessert-price");
     const dessertTotalPrice = clone.querySelector(".dessert-total-price");
-    const totalPrice = clone.querySelector(".total-price");
+    const removeIcon = clone.querySelector(".remove-icon");
+
+    removeIcon.addEventListener("click", () => {
+      remove(id);
+      cartUI(basketDesserts, template, containerElements);
+    });
 
     dessertName.textContent = name;
-    dessertAmount.textContent = amount;
+    dessertAmount.textContent = `${amount}x`;
     dessertPrice.textContent = formatNumber(price);
-    dessertTotalPrice.textContent = `${amount * formatNumber(price)}`;
+    dessertTotalPrice.textContent = `${formatNumber(amount * price)}`;
 
     fragment.appendChild(clone);
   });
   containerElements.appendChild(fragment);
+};
+
+export const totalPrice = (calculateTotal) => {
+  console.log(calculateTotal);
+  const priceCardTitle = document.querySelector(".amount");
+  const totalPrice = document.querySelector(".total-price");
+
+  priceCardTitle.textContent = `(${calculateTotal.totalAmount})`;
+  totalPrice.textContent = calculateTotal.totalPrice;
 };
