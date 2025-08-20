@@ -1,0 +1,26 @@
+@import "./main.css";
+
+.footer__container {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__subtitle {
+  color: var(--black);
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.git__link {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--black);
+  transition: all 0.05s;
+}
+
+.git__link:hover {
+  opacity: 70%;
+}
