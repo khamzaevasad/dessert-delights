@@ -6,6 +6,8 @@ import {
   basketDesserts,
   remove,
 } from "./basket.js";
+
+import { modalToggle } from "./modalToggle.js";
 // Update Ui
 export const updateUI = (desserts, dessertTemplate, containerElements) => {
   const fragment = document.createDocumentFragment();
@@ -114,7 +116,56 @@ export const totalPrice = (calculateTotal) => {
   console.log(calculateTotal);
   const priceCardTitle = document.querySelector(".amount");
   const totalPrice = document.querySelector(".total-price");
+  const totalOrderPrice = document.querySelector(".total-order-price");
+  const confirmBtn = document.querySelector(".confirm-btn");
+  const newOrder = document.getElementById("new-order");
+  const mask = document.getElementById("mask");
+
+  confirmBtn.addEventListener("click", () => {
+    modalToggle();
+  });
+
+  newOrder.addEventListener("click", () => {
+    modalToggle();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    console.log(e);
+    if (e.code == "Escape") {
+      modalToggle();
+    }
+  });
+
+  mask.addEventListener("click", () => {
+    modalToggle();
+  });
 
   priceCardTitle.textContent = `(${calculateTotal.totalAmount})`;
   totalPrice.textContent = calculateTotal.totalPrice;
+  totalOrderPrice.textContent = calculateTotal.totalPrice;
+};
+
+export const modalUpdate = (dessert, template, containerElements) => {
+  containerElements.innerHTML = "";
+  const fragment = document.createDocumentFragment();
+
+  dessert.forEach((item) => {
+    const { amount, price, image, name } = item;
+    const clone = template.content.cloneNode(true);
+
+    const modalImg = clone.querySelector(".modal-img");
+    const dessertAmount = clone.querySelector(".dessert-amount");
+    const dessertName = clone.querySelector(".dessert-name");
+    const dessertPrice = clone.querySelector(".dessert-price");
+    const modalPrice = clone.querySelector(".modal-price");
+
+    modalImg.src = image.desktop;
+    dessertAmount.textContent = `${amount}x`;
+    dessertName.textContent = name;
+    dessertPrice.textContent = formatNumber(price);
+    modalPrice.textContent = `${formatNumber(amount * price)}`;
+
+    fragment.appendChild(clone);
+  });
+  containerElements.appendChild(fragment);
 };

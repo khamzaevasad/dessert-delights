@@ -174,7 +174,7 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal" id="modal">
+        <div class="modal hidden" id="modal">
           <!-- Modal Header -->
           <div class="modal-header">
             <span>
@@ -202,55 +202,35 @@
           </div>
           <!-- Modal Body -->
           <div class="modal-body">
-            <div class="order-list">
-              <!-- img -->
-              <div class="list-left">
-                <img
-                  class="modal-img"
-                  src="./assets/images/image-creme-brulee-mobile.jpg"
-                  alt="img"
-                />
-                <!-- title -->
-                <div>
-                  <p class="dessert-name">Classic Tiramisu</p>
+            <div class="modal-template-container"></div>
+            <template id="modal-desert-template">
+              <div class="order-list">
+                <!-- img -->
+                <div class="list-left">
+                  <img
+                    class="modal-img"
+                    src="./assets/images/image-creme-brulee-mobile.jpg"
+                    alt="img"
+                  />
+                  <!-- title -->
                   <div>
-                    <span class="dessert-amount"> 1x </span>
-                    <span class="dessert-price">@ $5.50</span>
+                    <p class="dessert-name">Classic Tiramisu</p>
+                    <div>
+                      <span class="dessert-amount"> 1x </span>
+                      <span class="dessert-price">@ $5.50</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- price -->
-              <div>
-                <span class="modal-price">$5.50</span>
-              </div>
-            </div>
-            <div class="modal-line-box">
-              <div class="modal-line"></div>
-            </div>
-            <div class="order-list">
-              <!-- img -->
-              <div class="list-left">
-                <img
-                  class="modal-img"
-                  src="./assets/images/image-creme-brulee-mobile.jpg"
-                  alt="img"
-                />
-                <!-- title -->
+                <!-- price -->
                 <div>
-                  <p class="dessert-name">Classic Tiramisu</p>
-                  <div>
-                    <span class="dessert-amount"> 1x </span>
-                    <span class="dessert-price">@ $5.50</span>
-                  </div>
+                  <span class="modal-price">$5.50</span>
                 </div>
               </div>
-
-              <!-- price -->
-              <div>
-                <span class="modal-price">$5.50</span>
+              <div class="modal-line-box">
+                <div class="modal-line"></div>
               </div>
-            </div>
+            </template>
 
             <!-- totalOrder -->
             <div class="total-order-modal">
@@ -258,12 +238,14 @@
               <p class="total-order-price">$46.50</p>
             </div>
           </div>
-          <button class="order-btn">Start New Order</button>
+          <button id="new-order" class="order-btn">Start New Order</button>
         </div>
       </section>
     </main>
     <!-- MAIN END -->
 
+    <!-- Mask -->
+    <div class="mask hidden" id="mask"></div>
     <!-- Loader -->
     <div class="overlay hidden" id="overlay">
       <div class="lds-ring">

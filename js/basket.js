@@ -1,8 +1,13 @@
 import { formatNumber } from "./formatNumber.js";
-import { cartUI, totalPrice, updateUI } from "./updateUI.js";
+import { cartUI, totalPrice, modalUpdate } from "./updateUI.js";
 
 const cartTemplate = document.getElementById("cart-template");
 const container = document.querySelector(".cart-container");
+
+const modalTemplateContainer = document.querySelector(
+  ".modal-template-container"
+);
+const modalDesertTemplate = document.getElementById("modal-desert-template");
 
 export let basketDesserts = localStorage.getItem("basket")
   ? JSON.parse(localStorage.getItem("basket"))
@@ -43,6 +48,7 @@ function updateUIAndLocal() {
   calculateTotal(basketDesserts);
   cartUI(basketDesserts, cartTemplate, container);
   totalPrice(calculateTotal(basketDesserts));
+  modalUpdate(basketDesserts, modalDesertTemplate, modalTemplateContainer);
 }
 
 export function increment(id) {
@@ -74,4 +80,5 @@ export function remove(id) {
 document.addEventListener("DOMContentLoaded", () => {
   cartUI(basketDesserts, cartTemplate, container);
   totalPrice(calculateTotal(basketDesserts));
+  modalUpdate(basketDesserts, modalDesertTemplate, modalTemplateContainer);
 });
