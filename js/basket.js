@@ -17,7 +17,13 @@ if (basketDesserts.length) {
   calculateTotal(basketDesserts);
 }
 
-console.log(basketDesserts);
+function updateUIAndLocal() {
+  localStorage.setItem("basket", JSON.stringify(basketDesserts));
+  calculateTotal(basketDesserts);
+  cartUI(basketDesserts, cartTemplate, container);
+  totalPrice(calculateTotal(basketDesserts));
+  modalUpdate(basketDesserts, modalDesertTemplate, modalTemplateContainer);
+}
 
 export function calculateTotal(basketDesserts) {
   let totalPrice = 0;
@@ -37,18 +43,8 @@ export function addToBasket(desserts) {
   } else {
     basketDesserts.push({ ...desserts, amount: 1 });
   }
-  console.log(calculateTotal(basketDesserts));
-  console.log(basketDesserts);
 
-  localStorage.setItem("basket", JSON.stringify(basketDesserts));
-}
-
-function updateUIAndLocal() {
-  localStorage.setItem("basket", JSON.stringify(basketDesserts));
-  calculateTotal(basketDesserts);
-  cartUI(basketDesserts, cartTemplate, container);
-  totalPrice(calculateTotal(basketDesserts));
-  modalUpdate(basketDesserts, modalDesertTemplate, modalTemplateContainer);
+  updateUIAndLocal();
 }
 
 export function increment(id) {

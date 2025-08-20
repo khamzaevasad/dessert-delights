@@ -29,6 +29,14 @@ export const updateUI = (desserts, dessertTemplate, containerElements) => {
     const decrementBtn = clone.querySelector(".decrement-btn");
     const incrementBtn = clone.querySelector(".increment-btn");
 
+    const itemLocal = basketDesserts.find((el) => el.id === id);
+
+    if (itemLocal) {
+      addBtn.classList.add("hidden");
+      join.classList.remove("hidden");
+      counter.textContent = 1;
+    }
+
     addBtn.addEventListener("click", (e) => {
       e.preventDefault();
       addToBasket(dessert);
