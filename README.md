@@ -2,6 +2,13 @@
 
 An interactive and responsive dessert ordering website where users can browse desserts, add them to the cart, adjust quantities, and place orders.
 
+
+## 🌐 Live Demo
+
+> https://dessert-delights.vercel.app/
+
+---
+
 ## 🚀 Technologies Used
 
 - **HTML5** – semantic structure of the web pages
